@@ -1,0 +1,26 @@
+.gradient-custom {
+    background: #6a11cb;
+    background: -webkit-linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));  
+    background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1))}
+.audun_warn {
+    color: #ffffff;
+    background-color: #FF8080;
+    font-family: 'Source Sans Pro', sans-serif;
+    position: absolute;
+    border-radius:.5em;
+    margin: 10px 10px;
+    padding:12px;
+    width: 200px;
+}
+
+
+.audun_success {
+    color: #ffffff;
+    background-color: #7DDF7C;
+    font-family: 'Source Sans Pro', sans-serif;
+    position: absolute;
+    border-radius:.5em;
+    margin: 10px 10px;
+    padding:12px;
+    width: 200px;
+}

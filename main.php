@@ -59,7 +59,7 @@
           <div class="card-body p-4 text-center">
             <div class="mb-md-5 mt-md-4 pb-5">
               <h2 class="fw-bold mb-2 text-uppercase">Welcome: <?php echo $username ?></h2>
-                <form id="my-form" action="<?php echo $_SERVER['PHP_SELF'];?>" method="POST">
+                <form id="my-form" action="<?php echo $_SERVER['PHP_SELF'];?>" method="POST" enctype="multipart/form-data">
                 <div style="width: 80%; margin-left:auto; margin-right:auto;" class="form-outline form-white mb-4">
                 <textarea style="margin-top:20px ;" class="form-control" name="anotation" id="comment" cols="30" rows="5"></textarea>
                 <label class="form-label" for="comment">Insert a text here</label>

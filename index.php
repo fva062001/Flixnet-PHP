@@ -36,7 +36,9 @@
     $items = scandir("./UsersRegistry");
     foreach($items as $item)
     {
-      array_push($repository, $item);
+      if($items !== "." || $items !== ".."){
+        array_push($repository, $item);
+      }
     }
 ?>
 
@@ -145,7 +147,6 @@ $(document).ready(()=>{
       ]
     });
     info.forEach(data => {
-      console.log(data);
       table.row.add([data, data, data]).draw();
     });
     // setInterval( function () {
@@ -154,7 +155,8 @@ $(document).ready(()=>{
 
     $(".delete").click((e) => {
       e.preventDefault();
-      var fileSend = document.getElementById("delete").value;
+      var fileSend = $(e.target).val();
+      console.log(fileSend);
       $.ajax({
         type: "POST",
         url: "delete.php",
@@ -165,6 +167,10 @@ $(document).ready(()=>{
         encode:"true",
         success: function (res){
           console.log(res);
+          table.row( $(this).parents("tr") ).remove().draw();
+        },
+        error: function(res){
+          console.log(res.responseText);
         }
 
       })

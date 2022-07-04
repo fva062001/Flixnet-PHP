@@ -89,7 +89,7 @@
               <table id="table" style=" border-radius: 8px;" class="table">
                 <thead>
                   <tr>
-                    <td width="60%">Files</td>
+                    <th width="60%">Files</th>
                     <th width="20%">Preview</th>
                     <th width="20%">Delete</th>
                   </tr>
@@ -107,21 +107,21 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
 <script>
   //Made to make the popup dissapear after certain time
-setTimeout(() => {
-  const box = document.getElementById('popup');
-  const box1 = document.getElementById('popup1');
-  const box2 = document.getElementById('popup2');
-  box.style.display = 'none';
-  box1.style.display = 'none';
-  box2.style.display = 'none';
-}, 5000);
+// setTimeout(() => {
+//   const box = document.getElementById('popup');
+//   const box1 = document.getElementById('popup1');
+//   const box2 = document.getElementById('popup2');
+//   box.style.display = 'none';
+//   box1.style.display = 'none';
+//   box2.style.display = 'none';
+// }, 5000);
 
 var info = <?php echo json_encode($repository) ?>;
+console.log(info);
 $(document).ready(()=>{
     const table = $('#table').DataTable({
       paging:false,
       info:false,
-      data:info,
       columns:[
         {
                 render: function(data){
@@ -144,28 +144,33 @@ $(document).ready(()=>{
             }
       ]
     });
+    info.forEach(data => {
+      console.log(data);
+      table.row.add([data, data, data]).draw();
+    });
+    // setInterval( function () {
+    //   $('#table').DataTable.ajax.reload();
+    // }, 2000 );
+
+    $(".delete").click((e) => {
+      e.preventDefault();
+      var fileSend = document.getElementById("delete").value;
+      $.ajax({
+        type: "POST",
+        url: "delete.php",
+        data:{
+          name: fileSend
+        },
+        dataType:"json",
+        encode:"true",
+        success: function (res){
+          console.log(res);
+        }
+
+      })
+    });
 }
 );
-
-setInterval( function () {
-  $('#table').DataTable.ajax.reload();
-}, 2000 );
-
-$("#delete").click(() => {
-  var fileSend = document.getElementById("delete").value
-  $.ajax({
-    type: "POST",
-    url: "delete.php",
-    data:{
-      name: fileSend
-    },
-    dataType:"json",
-    encode:"true",
-    success: function (res){
-    }
-
-  })
-})
 
 
 

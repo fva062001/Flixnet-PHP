@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flixnet Login</title>
+    <link rel="stylesheet" href="style.css">\
+    <script src="https://kit.fontawesome.com/a6948756a2.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+<body>
+    
+<div class="login-form text-center">
+        <div class="row">
+            <div class="col-12 title">
+                <h1>Sign in</h1>
+            </div>
+            <div class="col-12">
+                <div class="mb-4">
+                    <input type="text" id="username" class="form-control" placeholder="Username"/>
+                </div>
+        
+            </div>
+            <div class="col-12">
+                <div class="form-outline mb-4">
+                    <input type="password" id="password" class="form-control" placeholder="Password"/>
+                  </div>
+            </div>
+            <button class="btn btn-danger" id="loginBtn" type="button">Sign in</button>
+        </div>
+    </div>
+<!-- Bootstrap cdn -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+<script>
+    document.getElementById("loginBtn").addEventListener("click", function(){
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+        $.ajax({
+            type: "POST",
+            url: "doLogin.php",
+            data:{
+            username: username,
+            password:password
+        },
+            success: function(data){
+                var response = JSON.parse(data);
+                if(response.status === "success"){
+                    if(response.admin === true){
+                        window.location.href = "./admin.html";
+                    }
+                    else{
+                        window.location.href = "./index.html";
+                    }
+                }
+                else{
+                    alert(data);
+                }
+            }
+        });
+        
+    });
+
+</script>
+</body>
+</html>

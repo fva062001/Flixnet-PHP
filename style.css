@@ -1,26 +1,68 @@
-.gradient-custom {
-    background: #6a11cb;
-    background: -webkit-linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));  
-    background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1))}
-.audun_warn {
-    color: #ffffff;
-    background-color: #FF8080;
-    font-family: 'Source Sans Pro', sans-serif;
-    position: absolute;
-    border-radius:.5em;
-    margin: 10px 10px;
-    padding:12px;
-    width: 200px;
+body{
+    background-image: url("./img/background.jpg");
+    overflow: hidden;
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-
-.audun_success {
-    color: #ffffff;
-    background-color: #7DDF7C;
-    font-family: 'Source Sans Pro', sans-serif;
-    position: absolute;
-    border-radius:.5em;
-    margin: 10px 10px;
-    padding:12px;
-    width: 200px;
+.login-form{
+    width: 480px !important;
+    height: 480px !important;
+    background: rgba(0,0,0,.75);
+    backdrop-filter: blur(10px);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    font-family: sans-serif;
 }
+
+input{
+    background: #333 !important;
+    width:70% !important;
+    margin: auto;
+    margin-left: 15% !important;
+    color: white !important;
+    border:none !important;
+}
+
+.icon{
+    text-align: center;
+    font-size: 325% !important;
+}
+
+i{
+    margin-bottom: 3% !important;
+    color: #DCDCDC;
+}
+
+h5{
+    color: #DCDCDC !important;
+    margin-bottom: 3% !important;
+}
+
+.title{
+    text-align: left;
+    margin-left: 15%;
+    margin-bottom: 10%;
+}
+
+::placeholder{
+    color: #DCDCDC !important;
+}
+
+button{
+    width: 67% !important;
+    margin: auto;
+    margin-left: 17% !important;
+}
+
+::-ms-reveal {
+    filter: invert(100%);
+  }

@@ -1,5 +1,5 @@
 body{
-    background-image: url("./img/background.jpg");
+    background-image: url("./img/backgroundBlack.jpg");
     overflow: hidden;
     min-height: 100vh;
     background-size: cover;
@@ -13,7 +13,8 @@ body{
 .login-form{
     width: 480px !important;
     height: 480px !important;
-    background: rgba(0,0,0,.75);
+    --bs-bg-opacity: 1;
+    background-color: rgba(var(--bs-dark-rgb),var(--bs-bg-opacity))!important;
     backdrop-filter: blur(10px);
     color: white;
     display: flex;

@@ -23,21 +23,6 @@ body{
     font-family: sans-serif;
 }
 
-
-
-.preview{
-    width: 600px !important;
-    height: 480px !important;
-    background: rgba(0,0,0,.75);
-    backdrop-filter: blur(10px);
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 10px;
-    font-family: sans-serif;
-}
-
 input{
     background: #333 !important;
     width:70% !important;
@@ -77,11 +62,7 @@ textarea{
     color: white !important;
     border:none !important; 
 }
-button{
-    width: 67% !important;
-    margin: auto;
-    margin-left: 17% !important;
-}
+
 
 ::-ms-reveal {
     filter: invert(100%);

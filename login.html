@@ -48,10 +48,10 @@
                 var response = JSON.parse(data);
                 if(response.status === "success"){
                     if(response.admin === true){
-                        window.location.href = "./admin.html";
+                        window.location.href = "./admin.php?admin=true";
                     }
                     else{
-                        window.location.href = "./index.html";
+                        window.location.href = `./index.php?user=${username}`;
                     }
                 }
                 else{
